@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  *
  * @author Ghufran Tripa
  */
+
 @Controller
 public class LogoutController {
     @GetMapping("/logout")

@@ -16,6 +16,7 @@ import javax.persistence.Table;
  *
  * @author Ghufran Tripa
  */
+
 @Entity
 @Table(name = "user")
 public class User {

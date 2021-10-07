@@ -43,7 +43,7 @@ public class UserService implements UserInterface {
             return null;
         }
 
-        return user;
+       return user;
     }
 
     private String hash(String password) throws Exception {
