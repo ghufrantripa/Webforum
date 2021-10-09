@@ -5,8 +5,7 @@
  */
 package com.blitz.webforum.repositories;
 
-import com.blitz.webforum.models.Post;
-import java.util.List;
+import com.blitz.webforum.models.Category;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -15,6 +14,6 @@ import org.springframework.stereotype.Repository;
  * @author Ghufran Tripa
  */
 @Repository
-public interface PostRepository extends JpaRepository<Post, Long>{
-    List<Post> findByUserId(long user_id);
+public interface CategoryRepository extends JpaRepository<Category, Long> {
+    
 }
