@@ -71,6 +71,7 @@ nav{
 }
 .category{
     border-bottom: 1px solid #ccc;
+    font-size: 21px;
 }
 .search-box{
     background: #fff;
@@ -230,4 +231,7 @@ nav{
     font-size:13px;
     color:#aaa;
     margin-bottom:0;
+  }
+  .button .span{
+      text-align: right;
   }

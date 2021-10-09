@@ -10,6 +10,7 @@ import com.blitz.webforum.interfaces.PostInterface;
 import com.blitz.webforum.models.Post;
 import com.blitz.webforum.models.Category;
 import com.blitz.webforum.models.User;
+import com.blitz.webforum.services.CategoryService;
 import com.blitz.webforum.services.PostService;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +22,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
@@ -31,35 +31,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MainController {
 
     @Autowired
-    private PostInterface postInterface;
+    private PostService postService;
     
     @Autowired
-    private CategoryInterface categoryInterface;
+    private CategoryService categoryService;
 
    @GetMapping("/")
-    public String index(Model model,  HttpServletRequest request) {
-        HttpSession session = request.getSession(true);
-        
-        long user_id = (long) session.getAttribute("id");
-        
-        List<Post> post = postInterface.findByUserId(user_id);
-        
+    public String index(Model model) {
+        List<Post> post = postService.getAll();
         model.addAttribute("post", post);
         
-        Post post = new Post();
         return "index";
     }
     
-    
+    //CRUD POST
     @GetMapping("/post/create")
-    public String create(Model model) {
+    public String createPost(Model model) {
         
-        List<Category> categories = categoryInterface.getAll();
-        model.addAttribute("category", categories);
-        
-        
-        
-        
+        List<Category> category = categoryService.getAll();
+        model.addAttribute("category", category);
         
         Post post = new Post();
         model.addAttribute("post", post);
@@ -68,7 +58,7 @@ public class MainController {
     }
 
     @PostMapping("/post/store")
-    public String store(@ModelAttribute("post") Post post, HttpServletRequest request) {
+    public String storePost(@ModelAttribute("post") Post post, HttpServletRequest request) {
         HttpSession session = request.getSession(true);
         
         User user = new User();
@@ -76,47 +66,27 @@ public class MainController {
         
         post.setUser(user);
 
-        postInterface.store(post);
+        postService.store(post);
         return "redirect:/";
     }
 
     @GetMapping("/post/{id}/edit")
-    public String edit(@PathVariable(value = "id") long id, Model model) {
-        List<Category> categories = categoryInterface.getAll();
-        model.addAttribute("categories", categories);
+    public String editPost(@PathVariable(value = "id") long id, Model model) {
+        List<Category> category = categoryService.getAll();
+        model.addAttribute("category", category);
         
-        Post post = postInterface.getById(id);
+        Post post = postService.getById(id);
 
         model.addAttribute("post", post);
         return "edit";
     }
 
     @PostMapping("/post/{id}/delete")
-    public String delete(@PathVariable(value = "id") long id) {
-        postInterface.delete(id);
+    public String deletePost(@PathVariable(value = "id") long id) {
+        postService.delete(id);
         return "redirect:/";
     }
-    
-    
-    
-
-@GetMapping("/post/create")
-private createPost(Model model){
-	Post post = new Post();
-	model.addAttribute("post", post);
-
-}
-    
-@PostMapping("/post/store")
-private postThread(@RequestParam("user_id") String user_id,
-                   @RequestParam("category_id") long category_id,
-                   @RequestParam("post_desc") String desc){
-                postService.postToDB(user_id, category_id, desc);
-                
-}
-
-	return "redirect:/";
-        
+    //END CRUD POST
     
 } 
 

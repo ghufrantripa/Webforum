@@ -26,8 +26,6 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-   
-
     @Column(name = "content_post")
     private String contentpost;
     
@@ -38,51 +36,40 @@ public class Post {
     @ManyToOne
     @JoinColumn(name="category_id")
     private Category category;
-
-    
-  
-
     
 
-    public void setContentpost(String contentpost) {
-        this.contentpost= contentpost;
-    }
 
-    public String getContentpost() {
-        return contentpost;
+
+    public long getId() {
+        return id;
     }
 
     public void setId(long id) {
         this.id = id;
     }
 
-    public long getId() {
-        return id;
+    public String getContentpost() {
+        return contentpost;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
+    public void setContentpost(String contentpost) {
+        this.contentpost = contentpost;
     }
 
     public User getUser() {
         return user;
     }
 
-    public void setUser(long user_id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public void setCategory(long category_id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Category getCategory() {
+        return category;
     }
- 
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
     
 }

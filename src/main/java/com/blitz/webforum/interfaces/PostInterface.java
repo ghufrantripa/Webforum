@@ -15,11 +15,13 @@ import java.util.List;
 
 public interface PostInterface {
 
-    public static void save(Post p);
     List<Post> getAll();
-    List<Post> findByUserId(long user_id);
+    
+    List<Post> fingByUserId(long user_id);
+    
     void store(Post post);
+    
     Post getById(long id);
+    
     void delete(long id);
-    void postToDB(long user_id, long category_id, String desc);
 }

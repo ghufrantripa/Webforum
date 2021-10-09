@@ -11,7 +11,14 @@ and open the template in the editor.
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home</title>
+        
+        
+        <!-- LINK BOOTSTRAP -->
         <link rel="stylesheet" href="css/index.css">
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     </head>
     <body>
 
@@ -30,11 +37,8 @@ and open the template in the editor.
         <div class="container">        
             <div class="left-sidebar">
                 <div class="category">
-                    <a href="automotive.html"><img src="/css/image/auto.png" >Automotive</a>
-                    <a href="#"><img src="/css/image/entertaiment.png" >Entertaiment</a>
-                    <a href="#"><img src="/css/image/game.png" >Games</a>
-                    <a href="#"><img src="/css/image/sport.png" >Sports</a>
-                    <a href="#"><img src="/css/image/technology.png" >Technology</a>
+                    <!--GET MAPPING-->
+                    <button type="submit" th:href="@{/post/create}" style="cursor: pointer" class="threadbox-threadbutton">Create</button>
                 </div>
             </div>
             <div class="main-content">
@@ -43,36 +47,35 @@ and open the template in the editor.
                 </div>
 
                 <div class="threadbox">
-                    <form>
-                        <div class="threadbox-input">
-                            <img src="/css/image/pp.png" alt="">
-                            <textarea style="width: 50vh;" rows="3" placeholder="What's up today?"></textarea>
-                            <div class="add-post-links">
-                                <a href="#"><img src="/css/image/images-removebg-preview.png">Photo/Video</a>
+                </div>
+                <div th:each="post : ${post}" class="table-post">
+                    <div class="post-container">
+                        <div class="user-profile">
+                            <img src="/css/image/pp.png">
+                            <div class="button">
+                                <p th:text="${ post.user.name }">Brfootball</p> 
+                                <span  style="float: right;">
+                                    <a th:href="@{/post/{id}/edit(id=${ post.id })}"  class="btn btn-info text-white ">
+                                            <i class='bx bx-pencil'></i>
+                                    </a>
+                                    <form onSubmit="return confirm('Do you really want to delete Post?')" method="POST" action="#" th:action="@{/post/{id}/delete(id=${ post.id })}">
+                                        <button type="submit" class="btn btn-danger text-white "><i class='bx bx-trash'></i></button>
+                                    </form>
+                                </span>
+                                <a th:text="${ post.category.name }">Sports</a>
+                                
+                                
                             </div>
                         </div>
-                        <button th:href="@{/post/create}" class="threadbox-threadbutton">Post</button>
-                    </form>
-                </div>
-                <div class="post-container">
-                    <div class="user-profile">
-                        <img src="/css/image/pp.png">
-                        <div>
-                            <p>Brfootball</p>
-                            <a href="Sports.html">Sports</a>
-                            .
-                            <span>Oct 5 2021, 12:00 pm</span>
+                        <div class="thread">
+                            <p th:text="${ post.contentpost}" >'My heart is with Mexico’ Bendera Meksiko
+
+                                20-year-old LA Galaxy defender Julian Araujo has decided to represent Mexico after FIFA approved his switch in allegiance from the USA. 
+
+                                He appeared at the U18, U19, U20, U23 levels for the USMNT and has one senior cap.</p>
                         </div>
                     </div>
-                    <div class="thread">
-                        <p>'My heart is with Mexico’ Bendera Meksiko
-
-                            20-year-old LA Galaxy defender Julian Araujo has decided to represent Mexico after FIFA approved his switch in allegiance from the USA. 
-
-                            He appeared at the U18, U19, U20, U23 levels for the USMNT and has one senior cap.</p>
-                    </div>
                 </div>
-
                 <div class="post-container">
                     <div class="user-profile">
                         <img src="/css/image/pp.png">
