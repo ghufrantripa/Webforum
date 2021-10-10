@@ -14,6 +14,7 @@ import java.util.List;
  */
 public interface PostInterface {
 <<<<<<< HEAD
+<<<<<<< HEAD
     List<Post> getAll();
 =======
 
@@ -25,4 +26,10 @@ public interface PostInterface {
     Post getById(long id);
     void delete(long id);
     void postToDB(long user_id, long category_id, String desc);
+=======
+    void postToDB(long user_id, long category_id, String content_post);
+    List <Post> getAll();
+    
+    
+>>>>>>> parent of c582154 (menambahkan  table post dan category)
 }

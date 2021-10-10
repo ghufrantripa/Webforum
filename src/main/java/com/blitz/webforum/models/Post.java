@@ -5,14 +5,15 @@
  */
 package com.blitz.webforum.models;
 
+<<<<<<< HEAD
 import java.util.Locale.Category;
+=======
+>>>>>>> parent of c582154 (menambahkan  table post dan category)
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 /**
@@ -26,65 +27,60 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-   
+    @Column(name = "user_id")
+    private long user_id;
+
+    @Column(name = "category_id")
+    private long category_id;
 
     @Column(name = "content_post")
-    private String contentpost;
-    
-    @ManyToOne
-    @JoinColumn(name="user_id")
-    private User user;
-    
-    @ManyToOne
-    @JoinColumn(name="category_id")
-    private Category category;
-
+    private String content_post;
     
   
 
-    
-
-    public void setContentpost(String contentpost) {
-        this.contentpost= contentpost;
-    }
-
-    public String getContentpost() {
-        return contentpost;
+    public long getId() {
+        return id;
     }
 
     public void setId(long id) {
         this.id = id;
     }
 
-    public long getId() {
-        return id;
+    public long getUser_id() {
+        return user_id;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setUser_id(long user_id) {
+        this.user_id = user_id;
     }
 
-    public Category getCategory() {
-        return category;
+    public long getCategory_id() {
+        return category_id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
+<<<<<<< HEAD
     public User getUser() {
         return user;
 <<<<<<< HEAD
 =======
+=======
+    public void setCategory_id(long category_id) {
+        this.category_id = category_id;
+>>>>>>> parent of c582154 (menambahkan  table post dan category)
     }
 
-    public void setUser(long user_id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getContent_post() {
+        return content_post;
     }
 
+<<<<<<< HEAD
     public void setCategory(long category_id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 >>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
+=======
+    public void setContent_post(String content_post) {
+        this.content_post = content_post;
+>>>>>>> parent of c582154 (menambahkan  table post dan category)
     }
  
     

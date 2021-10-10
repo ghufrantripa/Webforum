@@ -5,6 +5,7 @@
  */
 package com.blitz.webforum.controllers;
 
+<<<<<<< HEAD
 import com.blitz.webforum.interfaces.PostInterface;
 import com.blitz.webforum.models.Post;
 <<<<<<< HEAD
@@ -16,11 +17,13 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 >>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
+=======
+import com.blitz.webforum.services.PostService;
+>>>>>>> parent of c582154 (menambahkan  table post dan category)
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -47,25 +50,15 @@ public class MainController {
 =======
 
     @Autowired
-    private PostInterface postInterface;
-    
-    @Autowired
-    private CategoryInterface categoryInterface;
+    private PostService postService;
 
-   @GetMapping("/")
-    public String index(Model model,  HttpServletRequest request) {
-        HttpSession session = request.getSession(true);
-        
-        long user_id = (long) session.getAttribute("id");
-        
-        List<Post> post = postInterface.findByUserId(user_id);
-        
-        model.addAttribute("post", post);
-        
-        Post post = new Post();
+    @GetMapping("/")
+    public String index(Model model) {
+        model.addAttribute("list", postService.getAll());
         return "index";
     }
     
+<<<<<<< HEAD
     
     @GetMapping("/post/create")
     public String create(Model model) {
@@ -126,17 +119,20 @@ public class MainController {
 }
 =======
         return "redirect:/";
+=======
+    @PostMapping("/post")
+    public String postNew(@RequestParam("user_id") long user_id,
+            @RequestParam("category_id") long category_id,
+            @RequestParam("content") String content_post)
+    {
+        postService.postToDB(user_id, category_id, content_post);
+        
+        return "index";
+>>>>>>> parent of c582154 (menambahkan  table post dan category)
     }
-    
-    
-    
-
-@GetMapping("/post/create")
-private createPost(Model model){
-	Post post = new Post();
-	model.addAttribute("post", post);
 
 }
+<<<<<<< HEAD
     
 @PostMapping("/post/store")
 private postThread(@RequestParam("user_id") String user_id,
@@ -153,3 +149,5 @@ private postThread(@RequestParam("user_id") String user_id,
 
 
 >>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
+=======
+>>>>>>> parent of c582154 (menambahkan  table post dan category)

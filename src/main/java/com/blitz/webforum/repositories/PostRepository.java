@@ -14,6 +14,10 @@ import org.springframework.stereotype.Repository;
  * @author Sendy.dr
  */
 @Repository
+<<<<<<< HEAD
 public interface PostRepository extends JpaRepository<Post, Long> {
+=======
+public interface PostRepository extends JpaRepository<Post, Long>{
+>>>>>>> parent of c582154 (menambahkan  table post dan category)
     
 }
