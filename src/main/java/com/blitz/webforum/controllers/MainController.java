@@ -51,6 +51,7 @@ public class MainController {
 
     @Autowired
 <<<<<<< HEAD
+<<<<<<< HEAD
     private PostService postService;
 
     @GetMapping("/")
@@ -61,6 +62,8 @@ public class MainController {
     
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
     private PostInterface postInterface;
     
     @Autowired
@@ -80,6 +83,9 @@ public class MainController {
         return "index";
     }
     
+<<<<<<< HEAD
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
+=======
 >>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
     
     @GetMapping("/post/create")
@@ -88,7 +94,12 @@ public class MainController {
         List<Category> categories = categoryInterface.getAll();
         model.addAttribute("category", categories);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+        
+        
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
         
         
         
@@ -108,10 +119,13 @@ public class MainController {
     @PostMapping("/post/store")
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public String store(@ModelAttribute("post") Post post) {
         postInterface.store(post);
         return "redirect:/post/";
 =======
+=======
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
 =======
 >>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
     public String store(@ModelAttribute("post") Post post, HttpServletRequest request) {
@@ -131,6 +145,12 @@ public class MainController {
     public String edit(@PathVariable(value = "id") long id, Model model) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        List<Category> categories = categoryInterface.getAll();
+        model.addAttribute("categories", categories);
+        
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
 =======
         List<Category> categories = categoryInterface.getAll();
         model.addAttribute("categories", categories);
@@ -152,10 +172,13 @@ public class MainController {
         postInterface.delete(id);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         return "redirect:/employee/" ;
     }
 }
 =======
+=======
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
 =======
 >>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
         return "redirect:/";
@@ -171,10 +194,13 @@ public class MainController {
 >>>>>>> parent of c582154 (menambahkan  table post dan category)
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 }
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
     
     
     
@@ -185,6 +211,9 @@ private createPost(Model model){
 	model.addAttribute("post", post);
 
 }
+<<<<<<< HEAD
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
+=======
 >>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
     
 @PostMapping("/post/store")

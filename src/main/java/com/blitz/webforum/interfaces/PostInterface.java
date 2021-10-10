@@ -22,6 +22,9 @@ public interface PostInterface {
     List<Post> getAll();
     List<Post> findByUserId(long user_id);
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
+=======
 >>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
 =======
 >>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
@@ -30,12 +33,15 @@ public interface PostInterface {
     void delete(long id);
     void postToDB(long user_id, long category_id, String desc);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     void postToDB(long user_id, long category_id, String content_post);
     List <Post> getAll();
     
     
 >>>>>>> parent of c582154 (menambahkan  table post dan category)
+=======
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
 =======
 >>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
 }

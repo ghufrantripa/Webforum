@@ -28,6 +28,7 @@ public class Post {
     private long id;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     @Column(name = "user_id")
     private long user_id;
 
@@ -39,6 +40,8 @@ public class Post {
     
   
 =======
+=======
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
    
 
     @Column(name = "content_post")
@@ -60,6 +63,9 @@ public class Post {
     public void setContentpost(String contentpost) {
         this.contentpost= contentpost;
     }
+<<<<<<< HEAD
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
+=======
 >>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
 
     public String getContentpost() {
@@ -70,6 +76,7 @@ public class Post {
         this.id = id;
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
     public long getUser_id() {
         return user_id;
@@ -84,12 +91,25 @@ public class Post {
 =======
     public long getId() {
         return id;
+=======
+    public long getId() {
+        return id;
     }
 
     public void setCategory(Category category) {
         this.category = category;
     }
 
+    public Category getCategory() {
+        return category;
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+<<<<<<< HEAD
     public Category getCategory() {
         return category;
 >>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
@@ -124,12 +144,21 @@ public class Post {
         return user;
     }
 
+=======
+    public User getUser() {
+        return user;
+    }
+
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
     public void setUser(long user_id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public void setCategory(long category_id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+<<<<<<< HEAD
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
+=======
 >>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
     }
  
