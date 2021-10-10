@@ -27,6 +27,7 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+<<<<<<< HEAD
     @Column(name = "user_id")
     private long user_id;
 
@@ -37,15 +38,39 @@ public class Post {
     private String content_post;
     
   
+=======
+   
 
-    public long getId() {
-        return id;
+    @Column(name = "content_post")
+    private String contentpost;
+    
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
+    
+    @ManyToOne
+    @JoinColumn(name="category_id")
+    private Category category;
+
+    
+  
+
+    
+
+    public void setContentpost(String contentpost) {
+        this.contentpost= contentpost;
+    }
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
+
+    public String getContentpost() {
+        return contentpost;
     }
 
     public void setId(long id) {
         this.id = id;
     }
 
+<<<<<<< HEAD
     public long getUser_id() {
         return user_id;
     }
@@ -56,6 +81,18 @@ public class Post {
 
     public long getCategory_id() {
         return category_id;
+=======
+    public long getId() {
+        return id;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Category getCategory() {
+        return category;
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
     }
 
 <<<<<<< HEAD
@@ -69,6 +106,7 @@ public class Post {
 >>>>>>> parent of c582154 (menambahkan  table post dan category)
     }
 
+<<<<<<< HEAD
     public String getContent_post() {
         return content_post;
     }
@@ -81,6 +119,18 @@ public class Post {
     public void setContent_post(String content_post) {
         this.content_post = content_post;
 >>>>>>> parent of c582154 (menambahkan  table post dan category)
+=======
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(long user_id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setCategory(long category_id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
     }
  
     

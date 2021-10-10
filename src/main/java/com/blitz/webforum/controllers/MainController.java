@@ -50,6 +50,7 @@ public class MainController {
 =======
 
     @Autowired
+<<<<<<< HEAD
     private PostService postService;
 
     @GetMapping("/")
@@ -59,12 +60,39 @@ public class MainController {
     }
     
 <<<<<<< HEAD
+=======
+    private PostInterface postInterface;
+    
+    @Autowired
+    private CategoryInterface categoryInterface;
+
+   @GetMapping("/")
+    public String index(Model model,  HttpServletRequest request) {
+        HttpSession session = request.getSession(true);
+        
+        long user_id = (long) session.getAttribute("id");
+        
+        List<Post> post = postInterface.findByUserId(user_id);
+        
+        model.addAttribute("post", post);
+        
+        Post post = new Post();
+        return "index";
+    }
+    
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
     
     @GetMapping("/post/create")
     public String create(Model model) {
         
         List<Category> categories = categoryInterface.getAll();
         model.addAttribute("category", categories);
+<<<<<<< HEAD
+=======
+        
+        
+        
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
         
         
         
@@ -79,10 +107,13 @@ public class MainController {
 
     @PostMapping("/post/store")
 <<<<<<< HEAD
+<<<<<<< HEAD
     public String store(@ModelAttribute("post") Post post) {
         postInterface.store(post);
         return "redirect:/post/";
 =======
+=======
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
     public String store(@ModelAttribute("post") Post post, HttpServletRequest request) {
         HttpSession session = request.getSession(true);
         
@@ -99,6 +130,12 @@ public class MainController {
     @GetMapping("/post/{id}/edit")
     public String edit(@PathVariable(value = "id") long id, Model model) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        List<Category> categories = categoryInterface.getAll();
+        model.addAttribute("categories", categories);
+        
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
 =======
         List<Category> categories = categoryInterface.getAll();
         model.addAttribute("categories", categories);
@@ -114,10 +151,13 @@ public class MainController {
     public String delete(@PathVariable(value = "id") long id) {
         postInterface.delete(id);
 <<<<<<< HEAD
+<<<<<<< HEAD
         return "redirect:/employee/" ;
     }
 }
 =======
+=======
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
         return "redirect:/";
 =======
     @PostMapping("/post")
@@ -130,9 +170,22 @@ public class MainController {
         return "index";
 >>>>>>> parent of c582154 (menambahkan  table post dan category)
     }
+<<<<<<< HEAD
 
 }
 <<<<<<< HEAD
+=======
+    
+    
+    
+
+@GetMapping("/post/create")
+private createPost(Model model){
+	Post post = new Post();
+	model.addAttribute("post", post);
+
+}
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
     
 @PostMapping("/post/store")
 private postThread(@RequestParam("user_id") String user_id,

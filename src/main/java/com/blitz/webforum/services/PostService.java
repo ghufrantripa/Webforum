@@ -6,6 +6,7 @@
 package com.blitz.webforum.services;
 
 import com.blitz.webforum.interfaces.PostInterface;
+import static com.blitz.webforum.interfaces.PostInterface.p;
 import com.blitz.webforum.models.Post;
 import com.blitz.webforum.repositories.PostRepository;
 import java.util.List;
@@ -34,7 +35,11 @@ public class PostService implements PostInterface {
     @Override
     public Post getById(long id) {
 <<<<<<< HEAD
+<<<<<<< HEAD
         Optional < Post > optional = postRepository.findById(id);
+=======
+        Optional<Post> optional = postRepository.findById(id);
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
 =======
         Optional<Post> optional = postRepository.findById(id);
 >>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
@@ -49,6 +54,7 @@ public class PostService implements PostInterface {
 
     @Override
     public void delete(long id) {
+<<<<<<< HEAD
     this.postRepository.deleteById(id);
 =======
 public class PostService implements PostInterface{
@@ -76,6 +82,32 @@ public class PostService implements PostInterface{
     
 }
 <<<<<<< HEAD
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
+=======
+        this.postRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Post> findByUserId(long user_id) {
+        return postRepository.findByUserId(user_id);
+    }
+            
+   @Override
+    public void postToDB(long user_id, long category_id, String desc){
+         Post p = new Post();
+         
+         p.setUser(user_id);
+         p.setCategory(category_id);
+         p.setContentpost(desc);
+         
+         postInterface.save(p);
+    }
+        
+    @Override
+    public void postToDB(long user_id, long category, String name, String desc) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+}
 >>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
 }
 =======
