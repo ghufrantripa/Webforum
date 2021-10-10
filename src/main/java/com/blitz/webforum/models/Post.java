@@ -74,6 +74,17 @@ public class Post {
 
     public User getUser() {
         return user;
+<<<<<<< HEAD
+=======
+    }
+
+    public void setUser(long user_id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setCategory(long category_id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+>>>>>>> parent of 2081ad4 (membuat CRU pada halaman index)
     }
  
     
